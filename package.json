@@ -1,0 +1,17 @@
+{
+  "name": "nodejsedx",
+  "version": "1.0.0",
+  "description": "express web server for edx web course",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node"
+  ],
+  "author": "ceccottl",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
