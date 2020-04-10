@@ -29,12 +29,39 @@
      return quotes.filter(q => q.author === author);
  };
 
-const  byYear= (year) => {
+const  byYear = (year) => {
     return quotes.filter(q => q.year == year );
 };
 
+const addQuote = (quote) => {
+     quotes.push(quote);
+     return quotes;
+};
+
+const updateQuote = (id, quote) => {
+    quotes.forEach(q => {
+        if(q.id == id){
+            q.id = id;
+            q.quote = quote.quotes;
+            q.author = quote.author;
+            q.year = quote.year;
+        }
+    });
+    return quote;
+};
+
+const deleteQuote = (id) => {
+    let i = 0;
+   while (i < quotes.length){
+       if (quotes[i].id == id){
+           quotes.splice(i,1);
+       }
+       i++
+   }
+   return quotes
+};
+
  const byQuery = (query) => {
-     console.log(query);
      if(query.year){ return byYear(query.year); }
      else if(query.author){ return byAuthor(query.author) }
      else {return quotes}
@@ -47,5 +74,14 @@ module.exports = {
     },
     byQuery : (query) => {
         return byQuery(query);
+    },
+    addQuote : (quote) => {
+        return addQuote(quote);
+    },
+    updateQuote : (id, quote) => {
+        return updateQuote(id,quote);
+    },
+    deletQuote : (id)=> {
+        return deleteQuote(id);
     }
 };
